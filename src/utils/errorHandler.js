@@ -15,7 +15,7 @@ function errorHandler(err, req, res, next) {
         success: false,
         message: "something went wrong!",
         error: err,
-        data: {} // 
+        data: {} // Because this is an exception so no data is going to be provided.
     })
 }
 

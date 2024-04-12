@@ -4,8 +4,6 @@ class BaseError extends Error {
         this.name = name;
         this.statusCode = statusCode;
         this.detail = detail;
-
-        Error.captureStackTrace(this);
     }
 }
 

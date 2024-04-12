@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const { PORT, ATLAS_DB_URL } = require('./config/server.config');
+const { PORT } = require('./config/server.config');
 const apiRouter = require('./routes');
-const errorHandler = require('./utils/errorHandler');
+const {errorHandler} = require('./utils')
 const connectToDB = require('./config/db.config');
 
 
@@ -15,6 +15,7 @@ app.use(bodyParser.text());
 // If any request comes and route starts with /api, we map it to apiRouter
 app.use('/api', apiRouter);
 
+// Sample route to check the server.
 app.get('/ping', (req, res) => {
     return res.json({ message: 'Problem Service is alive' });
 })
@@ -26,4 +27,4 @@ app.listen(PORT, async () => {
     console.log(`server started at PORT: ${PORT}`);
     await connectToDB();
     // throw new baseError("some error", 404, "something went wrong");
-}); 
+});
