@@ -16,6 +16,15 @@ class ProblemRepository {
             throw error;
         }
     }
+
+    async getAllProblems() {
+        try {
+            const problems = await Problem.find({});
+            return problems;
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 module.exports = ProblemRepository;
